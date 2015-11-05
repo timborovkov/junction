@@ -1,9 +1,11 @@
 // say a message
 function speak(text, callback) {
     var u = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
     u.text = text;
     u.lang = 'en-US'
- 
+    u.voice = voices[10];
+
     u.onend = function () {
         if (callback) {
             callback();
@@ -19,17 +21,31 @@ function speak(text, callback) {
     speechSynthesis.speak(u);
 }
 
-function wake(){
-    if (annyang) {
-      // Let's define our first command. First the text we expect, and then the function it should call
-      var commands = {
-        'wake up': alert('wake UP')
-        'wake': alert('wake UP')
-      }
+function rec(){
+    var recognition = new webkitSpeechRecognition();
+    recognition.continuous = true; 
+    recognition.interimResults = true;
+    recognition.lang = 'en-US' 
 
-      // Add our commands to annyang
-      annyang.addCommands(commands);
-
-      // Start listening. You can call this here, or attach this call to an event, button, etc.
-      annyang.start();
+    // Set up 
+    recognition.onstart = function(event){ 
+        console.log("onstart", event);
+    }   
+     
+    // Process parsed result
+    recognition.onresult = function(event){ 
+        console.log("onresult", event);
+    }
+     
+    // Handle error
+    recognition.onerror = function(event){
+        console.log("onerror", event);
+    }
+     
+    // Housekeeping after success or failed parsing
+    recognition.onend = function(){ 
+        console.log("onend");
+    }
+    recognition.start()
+    
 }
