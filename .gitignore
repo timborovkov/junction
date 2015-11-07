@@ -1,0 +1,4 @@
+/qproject/bin
+/qproject/.settings
+*.classpath
+.metadata/*
