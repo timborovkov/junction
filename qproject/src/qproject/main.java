@@ -6,16 +6,19 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.UnknownHostException;
-
+import javax.swing.JFrame;
 import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechModel;
 import com.ibm.watson.developer_cloud.text_to_speech.v1.TextToSpeech;
 
 public class main {
-
-	public static void main(String[] args) throws URISyntaxException {
+public static void main(String[] args) throws URISyntaxException {
 
 		String username = "c6cc17c3-b8c2-49d8-82d3-18e585bf4438";
 		String password = "xdfX6djn2ZOJ";
+		
+		JFrame frame = new JFrame();
+		frame.setSize(400, 300);
+		frame.setTitle("qproject");
 		
 		System.out.println("Started...");
 		
@@ -52,7 +55,22 @@ public class main {
 			System.out.println("No internet");
 		}else{
 			//execute app
-			speech.talk("Welcome!");
+			//speech.talk("Welcome!");
+			frame.setVisible(true);
+			Runnable r = new Runnable() {
+		         public void run() {
+		             while(true){
+		            	 try {
+							Thread.sleep(5000);
+							System.out.println("check");
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		             }
+		         }
+		     };
+		     new Thread(r).start();
 		}
 		*/
 	}
