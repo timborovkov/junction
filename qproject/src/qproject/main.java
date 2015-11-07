@@ -5,9 +5,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.UnknownHostException;
 
+import javax.swing.JFrame;
+
 public class main {
 
 	public static void main(String[] args) {
+		JFrame frame = new JFrame();
+		frame.setSize(400, 300);
+		frame.setTitle("qproject");
+		
 		// TODO Auto-generated method stub
 		System.out.println("Started...");
 		
@@ -15,7 +21,22 @@ public class main {
 			System.out.println("No internet");
 		}else{
 			//execute app
-			speech.talk("Welcome!");
+			//speech.talk("Welcome!");
+			frame.setVisible(true);
+			Runnable r = new Runnable() {
+		         public void run() {
+		             while(true){
+		            	 try {
+							Thread.sleep(5000);
+							System.out.println("check");
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		             }
+		         }
+		     };
+		     new Thread(r).start();
 		}
 	}
 	//checks for connection to the internet through dummy request
