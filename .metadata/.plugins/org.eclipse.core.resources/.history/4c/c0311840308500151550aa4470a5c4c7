@@ -1,0 +1,11 @@
+package qproject;
+
+import java.io.File;
+import javaFlacEncoder.FLACFileWriter;
+import com.darkprograms.speech.microphone.Microphone;
+import com.darkprograms.speech.recognizer.Recognizer;
+import com.darkprograms.speech.recognizer.GoogleResponse;
+
+public class speech {
+
+}
