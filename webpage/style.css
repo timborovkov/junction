@@ -1,0 +1,35 @@
+ul{
+  list-style-type: none;
+}
+
+li{
+  display: block;
+}
+
+header {
+  background-color: black;
+}
+
+.jumbotron{
+  background-color: #fff;
+  border: 1px solid rgb(191, 192, 195);
+  max-width: 800px;
+}
+
+a {
+  color: white;
+}
+
+.test{
+  color: red;
+}
+
+.test::before{
+  background-color:green;
+  height: 10px;
+  content:"kakkapissapylly";
+}
+
+.form-control {
+  max-width: 250px;
+}
