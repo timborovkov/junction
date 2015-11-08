@@ -15,28 +15,35 @@ public class process {
 			if(req.contains("on")){
 				//lamp on
 				speech.talk("OK, I will turn lamp on");
-				
+				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=1", ""));
 				return true;
 			}else if(req.contains("off")){
 				//lamp off
 				speech.talk("OK, I will turn lamp off");
-				
+				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=2", ""));
 				return true;
 			}else if(req.contains("color")){
 				//change color
 				speech.talk("OK, I will change lamps color for you");
-				
+				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=5", ""));
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=1", ""));
 				return true;
 			}else if(req.contains("bright")){
 				if(req.contains("more")){
 					//more brightness
 					speech.talk("OK,  more brightness");
-					
+					System.out.println(http.executeGET("http://junction.esy.es/check.php?action=4", ""));
 					return true;
 				}else if(req.contains("less")){
 					//less brightness
 					speech.talk("OK, less brightness");
-					
+					System.out.println(http.executeGET("http://junction.esy.es/check.php?action=3", ""));
 					return true;
 				}
 			}

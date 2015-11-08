@@ -8,5 +8,14 @@
 	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/programming/java/sphinx 4/sphinx4-core-1.0-20150630.174404-9.jar"/>
 	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/programming/java/sphinx 4/sphinx4-data-1.0-20150630.174256-9.jar"/>
 	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/programming/java/sphinx 4/sphinx4-samples-1.0-20150630.174428-9.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/cmu_time_awb.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/cmu_us_kal.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/cmudict04.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/cmulex.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/cmutimelex.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/en_us.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/freetts-jsapi10.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/freetts.jar"/>
+	<classpathentry kind="lib" path="/Users/timofeiborovkov/Desktop/Junction/junction/qproject/freetts-1/freetts-1.2/lib/mbrola.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

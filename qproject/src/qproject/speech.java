@@ -4,6 +4,8 @@ import java.io.IOException;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
+import com.sun.speech.freetts.*;
+import java.io.*;
 
 public class speech {
 	public static boolean stop = false;
@@ -34,7 +36,14 @@ public class speech {
 		}
 		recognizer.stopRecognition();
 	}
+	private static final String VOICENAME = "kevin16";
 	public static void talk(String text){
-	       
-	 }
+		Voice voice;
+		VoiceManager vm = VoiceManager.getInstance();
+		voice = vm.getVoice(VOICENAME);
+		
+		voice.allocate();
+		
+		voice.speak(text);
+	}
 }
