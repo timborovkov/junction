@@ -17,47 +17,50 @@ public class process {
 			if(req.contains("on")){
 				//lamp on
 				speech.talk("OK, I will turn lamp on");
-				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=1", ""));
+				System.out.println(http.executeGET("http://arkanor.com/check.php?action=1", ""));
 				return true;
 			}else if(req.contains("off")){
 				//lamp off
 				speech.talk("OK, I will turn lamp off");
-				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=2", ""));
+				System.out.println(http.executeGET("http://arkanor.com/check.php?action=2", ""));
 				return true;
 			}else if(req.contains("color")){
 				//change color
 				speech.talk("OK, I will change lamps color for you");
-				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=5", ""));
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				System.out.println(http.executeGET("http://junction.esy.es/check.php?action=1", ""));
+				System.out.println(http.executeGET("http://arkanor.com/check.php?action=5", ""));
 				return true;
 			}else if(req.contains("bright")){
 				if(req.contains("more")){
 					//more brightness
 					speech.talk("OK,  more brightness");
-					System.out.println(http.executeGET("http://junction.esy.es/check.php?action=4", ""));
+					System.out.println(http.executeGET("http://arkanor.com/check.php?action=4", ""));
 					return true;
 				}else if(req.contains("less")){
 					//less brightness
 					speech.talk("OK, less brightness");
-					System.out.println(http.executeGET("http://junction.esy.es/check.php?action=3", ""));
+					System.out.println(http.executeGET("http://arkanor.com/check.php?action=3", ""));
 					return true;
 				}
 			}
 		}else if(req.contains("google")){
 			//search in google
+			try {
+				Desktop.getDesktop().browse(new URI("http://www.google.com"));
+			} catch (IOException | URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			speech.talk("What do you want to search for?");
-			main.showFrame(true);
 			return true;
 		}else if(req.contains("wiki") || req.contains("wikipedia")){
 			//search in wiki
-			speech.talk("What do you want to search for?");
-			main.showFrame(true);
+			try {
+				Desktop.getDesktop().browse(new URI("http://www.wikipedia.com"));
+			} catch (IOException | URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			speech.talk("Are you trying to become smarter?");
 			return true;
 		}else if(req.contains("go")){
 			if(req.contains("back")){
@@ -65,7 +68,7 @@ public class process {
 			}else if(req.contains("forward")){
 				//go forward
 			}
-		}else if(req.contains("open")){
+		}else if(req.contains("open") || req.contains("go")){
 			if(req.contains("explorer")){
 				try {
 					Desktop.getDesktop().open(new File("/"));
@@ -98,10 +101,30 @@ public class process {
 				e.printStackTrace();
 			}
 			return true;
-		}
+			}
 		}else if(req.contains("hello")){
-			speech.talk("Hi, bro");
+			speech.talk("Hi, my dear owner");
 			return true;
+		}else if(req.contains("play")){
+			if(req.contains("music")){
+				try {
+					Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=DK_0jXPuIr0&list=PLDcnymzs18LVXfO_x0Ei0R24qDbVtyy66"));
+				} catch (IOException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else if(req.contains("video")){
+				try {
+					Desktop.getDesktop().browse(new URI("http://www.youtube.com"));
+				} catch (IOException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}else if(req.contains("press")){
+			if(req.contains("enter")){
+				//press enter
+			}
 		}
 		return false;
 	}
