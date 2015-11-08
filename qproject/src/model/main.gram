@@ -1,0 +1,7 @@
+#JSGF V1.0;
+
+grammar main;
+ public <main> = [hi | hello | please | can you] [please] [ q | helper | computer] <action> <object> <status>;
+ <action> = [turn | open | search]
+ <object> = (lamp | browser | google | wiki | wikipedia)
+ <status> = [on | off]

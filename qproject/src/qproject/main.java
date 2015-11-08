@@ -1,78 +1,37 @@
 package qproject;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.UnknownHostException;
+
 import javax.swing.JFrame;
-import com.ibm.watson.developer_cloud.speech_to_text.v1.model.SpeechModel;
-import com.ibm.watson.developer_cloud.text_to_speech.v1.TextToSpeech;
 
 public class main {
-public static void main(String[] args) throws URISyntaxException {
-
-		String username = "c6cc17c3-b8c2-49d8-82d3-18e585bf4438";
-		String password = "xdfX6djn2ZOJ";
-		
-		JFrame frame = new JFrame();
-		frame.setSize(400, 300);
-		frame.setTitle("qproject");
-		
-		System.out.println("Started...");
-		
-		TextToSpeech service = new TextToSpeech();
-		service.setUsernameAndPassword("c6cc17c3-b8c2-49d8-82d3-18e585bf4438", "xdfX6djn2ZOJ");
-		// System.out.println(service.getHttpClient());
-		
-		
-		// Obtaining the token
-		String tokenUrl = "https://" + username + ":" + password + "@" + "stream.watsonplatform.net/authorization/api/v1/token";		
-		HTTPHandler httpHandler = new HTTPHandler(tokenUrl);
-		
-		String token = null; // TODO
-		
-		// Speech to Text service https://stream.watsonplatform.net/authorization/api/v1/token
-		
+	static JFrame frame;
 	
-		// System.out.println(service.getApiKey());
+	public static void main(String[] args) {
+		frame = new JFrame();
+		frame.setBounds(500, 500, 300, 200);
+		frame.setTitle("qproject: Your own way to future");
+		frame.setBackground(new Color(99, 207, 167));
+		frame.setVisible(false);
 		
-			URI baseUri = new URI("wss://stream.watsonplatform.net/speech-to-text/api/v1/recognize");
-			String spaghetti = baseUri.toString() + token + "&model=es-ES_BroadbandModel";
-			URI uri = new URI(spaghetti);
-			WSSClient wssclient = new WSSClient(uri);
-			
-			wssclient.connect();
-//			SpeechModel model = service.getModel();
-//			model.toString();
-			
-		
-		
-		
-		/*
 		if(!isInternetReachable()){
 			System.out.println("No internet");
 		}else{
 			//execute app
-			//speech.talk("Welcome!");
-			frame.setVisible(true);
-			Runnable r = new Runnable() {
-		         public void run() {
-		             while(true){
-		            	 try {
-							Thread.sleep(5000);
-							System.out.println("check");
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-		             }
-		         }
-		     };
-		     new Thread(r).start();
+			speech.talk("Welcome!");
+			
+			try {
+				speech.recognize();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		*/
+		
 	}
 	//checks for connection to the internet through dummy request
     public static boolean isInternetReachable()
@@ -99,5 +58,9 @@ public static void main(String[] args) throws URISyntaxException {
             return false;
         }
         return true;
+    }
+    public static void showFrame(boolean yes){
+    	frame.setVisible(yes);
+    	frame.setAlwaysOnTop(yes);
     }
 }
