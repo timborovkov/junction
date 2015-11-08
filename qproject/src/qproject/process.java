@@ -8,6 +8,8 @@ import java.net.URISyntaxException;
 
 public class process {
 	public static boolean voiceRequest(String req){
+		
+		
 		//choose object or action
 		if(req.contains("lamp")){
 			//choose action
@@ -73,7 +75,23 @@ public class process {
 					e.printStackTrace();
 				}
 				return true;
+			}else if(req.contains("youtube")){
+				try {
+					Desktop.getDesktop().browse(new URI("http://www.youtube.com"));
+				} catch (IOException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return true;
+			} else if(req.contains("about us")){
+			try {
+				Desktop.getDesktop().browse(new URI("http://80.69.174.24/"));
+			} catch (IOException | URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+			return true;
+		}
 		}else if(req.contains("hello")){
 			speech.talk("Hi, bro");
 			return true;
