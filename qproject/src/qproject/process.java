@@ -6,42 +6,50 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import edu.cmu.sphinx.api.LiveSpeechRecognizer;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 public class process {
 	public static boolean voiceRequest(String req){
 		
-		
 		//choose object or action
-		if(req.contains("lamp")){
+		//if(req.contains("lamp")){
 			//choose action
 			
 			if(req.contains("on")){
 				//lamp on
-				speech.talk("OK, I will turn lamp on");
 				System.out.println(http.executeGET("http://arkanor.com/check.php?action=1", ""));
+				speech.talk("OK, I will turn lamp on");
 				return true;
-			}else if(req.contains("off")){
+			}else if(req.contains("off") || req.contains("shut down")){
 				//lamp off
-				speech.talk("OK, I will turn lamp off");
 				System.out.println(http.executeGET("http://arkanor.com/check.php?action=2", ""));
+				speech.talk("OK, I will turn lamp off");
+				
+				
+				
 				return true;
 			}else if(req.contains("color")){
 				//change color
-				speech.talk("OK, I will change lamps color for you");
 				System.out.println(http.executeGET("http://arkanor.com/check.php?action=5", ""));
+				speech.talk("OK, I will change lamps color for you");
 				return true;
 			}else if(req.contains("bright")){
 				if(req.contains("more")){
 					//more brightness
-					speech.talk("OK,  more brightness");
 					System.out.println(http.executeGET("http://arkanor.com/check.php?action=4", ""));
+					speech.talk("OK,  more brightness");
 					return true;
 				}else if(req.contains("less")){
 					//less brightness
-					speech.talk("OK, less brightness");
 					System.out.println(http.executeGET("http://arkanor.com/check.php?action=3", ""));
+					speech.talk("OK, less brightness");
 					return true;
 				}
-			}
+			//}
 		}else if(req.contains("google")){
 			//search in google
 			try {
@@ -121,10 +129,16 @@ public class process {
 					e.printStackTrace();
 				}
 			}
-		}else if(req.contains("press")){
-			if(req.contains("enter")){
-				//press enter
+		}else if(req.contains("email")){
+			try {
+				Desktop.getDesktop().mail();
+				speech.talk("OK, now you can do what ever you want with your email!");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
+		}else{
+			//api accesyosable rule
 		}
 		return false;
 	}

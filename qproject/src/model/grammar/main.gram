@@ -1,0 +1,21 @@
+#JSGF V1.0;
+grammar main;
+public <greeting> = [hi | hello | morning | howdy | q | wake up]{hello};
+public <virtualEvent> = [[please]<virtualAction> (<virtualObject> | <webApps>)[<please>]];
+public <realEvent> = [[please]<realAction><realObject>[<please>]];
+public <keyboard> = [open](keyboard);
+
+<please> = (thank you | please | thanks);
+<realObject> = [the | a | an](lamp | light);
+<virtualAction> = (open | go [to] | delete);
+<realAction> = ([turn] on | [turn] off);
+<virtualObject> = [the | a | an](browser | camera | reminders | maps | <webApps>);
+<webApps> = (<google> | <wiki> | <netflix> | <youtube> | <instagram> | <facebook> | <spotify>);
+<room> = (bed | living | bath) (room);
+<google> = (google | search){google};
+<wiki> = (wikipedia | wiki){wiki};
+<netflix> = (netflix | watch movie){netflix};
+<youtube> = (youtube | watch videos){youtube};
+<instagram> = (insta | instagram){instagram};
+<facebook> = (f b | facebook){facebook};
+<spotify> = (spotify){spotify};

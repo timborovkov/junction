@@ -59,8 +59,5 @@ public class main {
         }
         return true;
     }
-    public static void showFrame(boolean yes){
-    	frame.setVisible(yes);
-    	frame.setAlwaysOnTop(yes);
-    }
+  
 }
