@@ -1,0 +1,11 @@
+{
+  "name": "qproject",
+  "version": "0.0.1",
+  "description": "qproject is your personal desktop life assistant and friend. (Made during Junction hackathon 2015)",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Timothy Borovkov",
+  "license": "MIT"
+}

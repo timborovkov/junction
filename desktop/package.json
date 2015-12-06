@@ -1,0 +1,18 @@
+{
+  "name": "qproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Timothy Borovkov",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-rebuild": "^1.0.2"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "jsonfile": "^2.2.3"
+  }
+}

@@ -1,0 +1,6 @@
+#JSGF V1.0;
+grammar main2;
+public <command> = <please>(open | go to)(google | wikipedia | wiki);
+public <music> = <please>(play | I want)(music);
+public <lamp> = <please>(turn lamp on | turn lamp off | lamb brighter | lamp less bright | lamp change color);
+<please>  = [please | can you];

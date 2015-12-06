@@ -23,7 +23,7 @@ public class speech {
 		//Grammar
 		configuration.setGrammarPath("resource:/model/grammar/");
 		configuration.setUseGrammar(true);
-		configuration.setGrammarName("main");
+		configuration.setGrammarName("main2");
 		
 		LiveSpeechRecognizer recognizer = new LiveSpeechRecognizer(configuration);
 		recognizer.startRecognition(true);
